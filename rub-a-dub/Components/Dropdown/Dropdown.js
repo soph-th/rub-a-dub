@@ -4,7 +4,7 @@
 //Props: ??
 
 import React from "react";
-import Select from "react-select";
+// import Select from "react-select";
 
 /**
  * Creates individual dropdown Select element, inheriting options, placeholder and onChange props. Select component is from React-Select library.
@@ -15,7 +15,7 @@ function Dropdown({ options, dropdownName, onChange, dropdownId }) {
 			<label htmlFor={dropdownId} id='dropdownLabel' className='dropdownLabel'>
 				{dropdownName}
 			</label>
-			<Select
+			<input
 				className='dropdownSelect'
 				id={dropdownId}
 				options={options}
