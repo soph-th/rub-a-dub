@@ -53,16 +53,18 @@ function App() {
 		/**
 		 * Sends a fetch request to api /users/:, requesting all user data where data in any columns of user table match keyword provided. Sets fetched data as 'data' useState. Reloads based on searchBarText useState.
 		 */
-		async function getAllDataByKeyword() {
-			const response = await fetch(
-				`http://localhost:3000/users/${searchBarText}`,
-				{ method: "GET", headers: { accept: "application/JSON" } }
-			);
-			const dataJson = await response.json();
 
-			setData(dataJson.payload);
-		}
-		getAllDataByKeyword();
+		//i've moved this to line 83--
+		// async function getAllDataByKeyword() {
+		// 	const response = await fetch(
+		// 		`http://localhost:3000/users/${searchBarText}`,
+		// 		{ method: "GET", headers: { accept: "application/JSON" } }
+		// 	);
+		// 	const dataJson = await response.json();
+
+		// 	setData(dataJson.payload);
+		// }
+		// getAllDataByKeyword();
 	}, [searchBarText]);
 
 	useEffect(() => {
@@ -77,6 +79,17 @@ function App() {
 	function handleChange(e) {
 		console.log(`value is changing >> ${e.target.value}`);
 		setSearchBarText(e.target.value);
+
+		async function getAllDataByKeyword() {
+			const response = await fetch(
+				`http://localhost:3000/users/${searchBarText}`,
+				{ method: "GET", headers: { accept: "application/JSON" } }
+			);
+			const dataJson = await response.json();
+
+			setData(dataJson.payload);
+		}
+		getAllDataByKeyword();
 	}
 
 	/**
