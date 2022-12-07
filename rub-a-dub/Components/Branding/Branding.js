@@ -3,13 +3,15 @@
 //To contain: logo, brand name
 //Props: ??
 
+import Image from 'next/image'
+
 /**
  * Creates a frag containing logo image and brand-text div (product name and slogan) elements, each with a class and id
  */
 function Branding({ logo }) {
 	return (
 		<>
-			<img className='logo' id='logo' src={logo} alt='logo' />
+			<Image className='logo' id='logo' src="/logo512.png" alt='logo' width='64' height='40'/>
 			<div>
 				<div className='brand-text' id='brand-text'>
 					<h3 className='rub-a-dub' id='rub-a-dub'>

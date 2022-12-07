@@ -1,7 +1,9 @@
+
+
 // import "../Components";
 import Display from "../Components/Display/Display.js";
 import Header from "../Components/Header/Header.js";
-//import logo from "./logo512.png";
+import Image from 'next/image'
 import { useEffect, useState } from "react";
 
 /**
@@ -41,10 +43,10 @@ function App() {
 				{ method: "GET", headers: { accept: "application/JSON" } }
 			);
 			const dataJson = await response.json();
-			console.log(dataJson);
+			//console.log(dataJson);
 
 			setData(dataJson.payload);
-			console.log(data);
+			//console.log(data);
 		}
 		getDataByFilter();
 	}, [progammingLanguageText, locationText, spokenLanguageText]);
@@ -54,32 +56,7 @@ function App() {
 		 * Sends a fetch request to api /users/:, requesting all user data where data in any columns of user table match keyword provided. Sets fetched data as 'data' useState. Reloads based on searchBarText useState.
 		 */
 
-		//i've moved this to line 83--
-		// async function getAllDataByKeyword() {
-		// 	const response = await fetch(
-		// 		`http://localhost:3000/users/${searchBarText}`,
-		// 		{ method: "GET", headers: { accept: "application/JSON" } }
-		// 	);
-		// 	const dataJson = await response.json();
-
-		// 	setData(dataJson.payload);
-		// }
-		// getAllDataByKeyword();
-	}, [searchBarText]);
-
-	useEffect(() => {
-		console.log(`HELLO`, data);
-		console.log(`search console log >>> ${searchBarText}`);
-	}, [data, searchBarText]);
-
-	/**
-	 * When the value at searchBar changes, function gets text value from searchBar and uses this value to set setSearchBarText useState
-	 * @param {*} e
-	 */
-	function handleChange(e) {
-		console.log(`value is changing >> ${e.target.value}`);
-		setSearchBarText(e.target.value);
-
+	
 		async function getAllDataByKeyword() {
 			const response = await fetch(
 				`http://localhost:3000/users/${searchBarText}`,
@@ -90,6 +67,20 @@ function App() {
 			setData(dataJson.payload);
 		}
 		getAllDataByKeyword();
+	}, [searchBarText]);
+
+	useEffect(() => {
+		//console.log(`HELLO`, data);
+		//console.log(`search console log >>> ${searchBarText}`);
+	}, [data, searchBarText]);
+
+	/**
+	 * When the value at searchBar changes, function gets text value from searchBar and uses this value to set setSearchBarText useState
+	 * @param {*} e
+	 */
+	function handleChange(e) {
+		//console.log(`value is changing >> ${e.target.value}`);
+		setSearchBarText(e.target.value);
 	}
 
 	/**
@@ -98,7 +89,7 @@ function App() {
 	 */
 	function onChangeProgrammingLang(e) {
 		setProgammingLanguageText(e.value);
-		console.log(e);
+		//console.log(e);
 	}
 
 	/**
@@ -106,10 +97,10 @@ function App() {
 	 * @param {*} e
 	 */
 	function onChangeSpokenLang(e) {
-		console.log(e);
-		console.log("onchangespokenlang called");
+		//console.log(e);
+		//console.log("onchangespokenlang called");
 		setSpokenLanguageText(e.value);
-		console.log(spokenLanguageText);
+		//console.log(spokenLanguageText);
 	}
 
 	/**
@@ -117,14 +108,14 @@ function App() {
 	 * @param {*} e
 	 */
 	function onChangeLocation(e) {
-		console.log(e);
+		//console.log(e);
 		setLocationText(e.value);
-		console.log(locationText);
+		//console.log(locationText);
 	}
 
 	return (
 		<div className='App'>
-			{/* <Header logo={logo} /> */}
+			<Header />
 			<Display
 				data={data}
 				handleChange={handleChange}

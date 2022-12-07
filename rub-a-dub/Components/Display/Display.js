@@ -19,7 +19,7 @@ function Display({
 }) {
 	//let name = 'krish'
 	//console.log(data.payload[0].name)
-	console.log(`DISPLAY DATA`, data);
+	//console.log(`DISPLAY DATA`, data);
 
 	return (
 		<div>

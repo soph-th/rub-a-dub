@@ -9,10 +9,10 @@ import Menu from '../Menu/Menu'
 /**
  * Creates Header component, includes Branding and Menu icon components, passing logo image path prop
  */
-function Header({logo}) {
+function Header() {
     return(
         <div className="header" id="header">
-        <Branding logo={logo}/>
+        <Branding />
         <Menu />
         </div>
     )
