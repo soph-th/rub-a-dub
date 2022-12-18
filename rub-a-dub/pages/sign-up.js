@@ -26,9 +26,9 @@ import { nanoid } from "nanoid";
 
 function SignUp() {
 	const [progress, setProgress] = useState(1);
-	let [newUser, setNewUser] = useState({
+	const [newUser, setNewUser] = useState({
 		id: nanoid(),
-		name: "gill",
+		username: "gill",
 		role: "",
 		spokenLanguage: "",
 		location: "",
@@ -110,24 +110,19 @@ function SignUp() {
 	};
 
 	useEffect(() => {
-		console.log(newUser.name);
+		console.log(newUser.username);
 	}, [newUser]);
 
-	// function userInfo(newUser) {
-	// 	setNewUser(...newUser, (questions[progress].userinfo = "bailey"));
-	// 	console.log([questions[progress].userinfo]);
-	// }
+	function userInfo() {
+		setNewUser({ ...newUser, username: `bailey` });
+		console.log([questions[progress].userinfo]);
+		console.log(newUser.username);
+	}
 
 	return (
 		<div>
 			<h1>Hello, where is my progress bar?!?!?!</h1>
-			<button
-				onClick={() =>
-					setNewUser(...newUser, (questions[progress].userinfo = "bailey"))
-				}
-			>
-				Wanna set me?
-			</button>
+			<button onClick={() => userInfo()}>Wanna set me?</button>
 			{/* <ProgressBar now={(progress / 9) * 100} /> */}
 			<QuestionBox
 				question={questions[progress].question}
