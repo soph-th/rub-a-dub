@@ -20,15 +20,15 @@ COMPONENTS:
 import { ProgressBar as poopybutt } from "react-bootstrap/ProgressBar";
 import { useEffect, useState } from "react";
 import QuestionBox from "../Components/QuestionBox/QuestionBox";
+import { nanoid } from "nanoid";
 //import Dropdown from "../Components/Dropdown/Dropdown";
-import "../signup-questions";
+//import {questions} from "../signup-questions";
 
 function SignUp() {
 	const [progress, setProgress] = useState(1);
-	const [name, setName] = useState("");
-	const [newUser, setNewUser] = useState({
+	let [newUser, setNewUser] = useState({
 		id: nanoid(),
-		name: "",
+		name: "gill",
 		role: "",
 		spokenLanguage: "",
 		location: "",
@@ -37,16 +37,97 @@ function SignUp() {
 		bio: "",
 	});
 
-	useEffect(() => {
-		console.log(name);
-	}, [name]);
+	let match = "mentor";
+	let skills = "specialities";
+	let skilltext = "things you can mentor people in";
 
-	function userInfo() {}
+	let questions = {
+		//input box
+		1: {
+			userinfo: "name",
+			question: "what shall we call you?",
+			description:
+				"this is the name that will appear on your profile to other people on <app name>",
+			answerselector: <input type='text' />,
+		},
+
+		//single select
+		2: {
+			question: "what can we help you find?",
+			description:
+				"find expert mentors, fledgling aspiring developer mentees or specialist collaborators to work with",
+			answerselector: <input type='text' />,
+		},
+
+		//multi select
+		3: {
+			question: "which language do you speak?",
+			description: `help us match you with ${match}s who speak the same language as you`,
+			answerselector: <input type='text' />,
+		},
+
+		//single select
+		4: {
+			question: "where are you?",
+			description: `help us match you with ${match}s in your area`,
+			answerselector: <input type='text' />,
+		},
+
+		//multi select
+		5: {
+			question: `what are your ${skills}?`,
+			description: `select ${skilltext}`,
+			answerselector: <input type='text' />,
+		},
+
+		//photo?????
+		6: {
+			question: "add a photo!",
+			description: "",
+			answerselector: <input type='text' />,
+		},
+
+		//input box
+		7: {
+			question: "tell us a little bit about yourself",
+			description:
+				"tell other developers a bit about yourself, what you can offer and what you're looking for",
+			answerselector: <input type='text' />,
+		},
+
+		//3 input boxes
+		8: {
+			question: "social media",
+			description: "",
+			answerselector: (
+				<div>
+					<input type='text' label='linkedIn' />
+					<input type='text' label='twitter' />
+					<input type='text' label='GitHub' />
+				</div>
+			),
+		},
+	};
+
+	useEffect(() => {
+		console.log(newUser.name);
+	}, [newUser]);
+
+	// function userInfo(newUser) {
+	// 	setNewUser(...newUser, (questions[progress].userinfo = "bailey"));
+	// 	console.log([questions[progress].userinfo]);
+	// }
 
 	return (
 		<div>
 			<h1>Hello, where is my progress bar?!?!?!</h1>
-			<button onClick={() => setProgress(4)}>Wanna set me?</button>
+			<button
+				onClick={() =>
+					setNewUser(...newUser, (questions[progress].userinfo = "bailey"))
+				}
+			>
+				Wanna set me?
+			</button>
 			{/* <ProgressBar now={(progress / 9) * 100} /> */}
 			<QuestionBox
 				question={questions[progress].question}

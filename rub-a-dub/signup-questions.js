@@ -1,8 +1,9 @@
 //import Select from "react-select/dist/declarations/src/Select";
 
-let questions = {
+export const questions = {
 	//input box
 	1: {
+		userinfo: "name",
 		question: "what shall we call you?",
 		description:
 			"this is the name that will appear on your profile to other people on <app name>",
