@@ -1,9 +1,7 @@
-
-
 // import "../Components";
 import Display from "../Components/Display/Display.js";
 import Header from "../Components/Header/Header.js";
-import Image from 'next/image'
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 /**
@@ -56,7 +54,6 @@ function App() {
 		 * Sends a fetch request to api /users/:, requesting all user data where data in any columns of user table match keyword provided. Sets fetched data as 'data' useState. Reloads based on searchBarText useState.
 		 */
 
-	
 		async function getAllDataByKeyword() {
 			const response = await fetch(
 				`http://localhost:3000/users/${searchBarText}`,
@@ -123,7 +120,7 @@ function App() {
 				onChangeLocation={onChangeLocation}
 				onChangeSpokenLang={onChangeSpokenLang}
 			/>
-			<a href='other'>Go Home</a>
+			<a href='/'>Go Home</a>
 		</div>
 	);
 }
