@@ -19,9 +19,13 @@
 export default function QuestionBox({ question, description, answerselector }) {
 	return (
 		<div>
-			<h1>{question}</h1>
-			<p>{description}</p>
+			<h1 className='question'>{question}</h1>
+			<p className='question-description'>{description}</p>
 			{answerselector}
+			<div className='button-container'>
+				<button>⬅️</button>
+				<button>➡️</button>
+			</div>
 		</div>
 	);
 }
