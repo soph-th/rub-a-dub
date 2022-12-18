@@ -123,7 +123,7 @@ function App() {
 				onChangeLocation={onChangeLocation}
 				onChangeSpokenLang={onChangeSpokenLang}
 			/>
-			<a href='http://localhost:3000/'>Go Home</a>
+			<a href='other'>Go Home</a>
 		</div>
 	);
 }
