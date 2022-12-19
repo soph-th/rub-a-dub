@@ -17,7 +17,7 @@ COMPONENTS:
     - coniditonal 
             - if progress < 2/9, activate skip for now button
  */
-import { ProgressBar as poopybutt } from "react-bootstrap/ProgressBar";
+import ProgressBar from "react-bootstrap/ProgressBar";
 import { useEffect, useState } from "react";
 import QuestionBox from "../Components/QuestionBox/QuestionBox";
 import { nanoid } from "nanoid";
@@ -123,7 +123,7 @@ function SignUp() {
 		<div>
 			<h1>Hello, where is my progress bar?!?!?!</h1>
 			<button onClick={() => userInfo()}>Wanna set me?</button>
-			{/* <ProgressBar now={(progress / 9) * 100} /> */}
+			<ProgressBar now={(progress / 9) * 100} />
 			<QuestionBox
 				question={questions[progress].question}
 				description={questions[progress].description}
@@ -131,7 +131,6 @@ function SignUp() {
 				handleForwardClick={()=> setProgress(progress+1)}
 				handleBackClick={()=> setProgress(progress-1)}
 			></QuestionBox>
-			<poopybutt />
 		</div>
 	);
 }
