@@ -16,15 +16,15 @@
             - if progress < 2/9, activate skip for now button
  */
 
-export default function QuestionBox({ question, description, answerselector }) {
+export default function QuestionBox({ question, description, answerselector, handleBackClick, handleForwardClick}) {
 	return (
 		<div>
 			<h1 className='question'>{question}</h1>
 			<p className='question-description'>{description}</p>
 			{answerselector}
 			<div className='button-container'>
-				<button>⬅️</button>
-				<button>➡️</button>
+				<button onClick={handleBackClick}>⬅️</button>
+				<button onClick={handleForwardClick}>➡️</button>
 			</div>
 		</div>
 	);

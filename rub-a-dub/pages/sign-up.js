@@ -128,6 +128,8 @@ function SignUp() {
 				question={questions[progress].question}
 				description={questions[progress].description}
 				answerselector={questions[progress].answerselector}
+				handleForwardClick={()=> setProgress(progress+1)}
+				handleBackClick={()=> setProgress(progress-1)}
 			></QuestionBox>
 			<poopybutt />
 		</div>
